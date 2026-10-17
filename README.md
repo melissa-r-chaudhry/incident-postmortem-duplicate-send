@@ -1,5 +1,13 @@
 # Incident Postmortem — Duplicate Sends from a Warm-Standby Host
 
+**What it is:** A real incident postmortem — duplicate sends to ~16,000 real recipients from a warm-standby host.
+**Why it existed:** Written to document a real multi-night incident and the three layered root causes found while chasing it.
+**What I owned:** The full investigation, every fix applied, and this writeup.
+**Stack:** PostgreSQL, Docker, a workflow-automation engine.
+**Production status:** N/A — this documents a real, resolved incident. Host/service names are generalized to avoid detailing real infrastructure; every technical fact and number is accurate.
+
+---
+
 **Summary:** A workflow automation engine running on a primary host and a
 warm-standby host both ended up actively executing the same scheduled job,
 causing a real messaging system to send the same content to the same
